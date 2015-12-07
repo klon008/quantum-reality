@@ -1,0 +1,391 @@
+@font-face {
+    font-family: 'PF Stamps pro metal';
+    src: url('fonts/PF Stamps pro/pf_stamps_pro_metal.eot');
+    src: url('fonts/PF Stamps pro/pf_stamps_pro_metal.eot?#iefix') format('embedded-opentype'), url('fonts/PF Stamps pro/pf_stamps_pro_metal.woff2') format('woff2'), url('fonts/PF Stamps pro/pf_stamps_pro_metal.woff') format('woff'), url('fonts/PF Stamps pro/pf_stamps_pro_metal.ttf') format('truetype'), url('fonts/PF Stamps pro/pf_stamps_pro_metal.svg#pf_stamps_prometal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'capture_it_2regular';
+    src: url('fonts/3944.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: url('../images/13symbols72.jpg');
+    background-color: black;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-font-smoothing: subpixel-antialiased;
+    -o-font-smoothing: subpixel-antialiased;
+    font-smoothing: subpixel-antialiased;
+}
+
+table {
+    table-layout: fixed;
+    /* Фиксированная ширина ячеек */
+    width: 100%;
+    /* Ширина таблицы */
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+
+
+/*HOVER IMAGE*/
+
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.hovereffect .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+    -webkit-transition: all .4s linear;
+    transition: all .4s linear;
+}
+
+.hovereffect h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-transform: translatey(-100px);
+    -ms-transform: translatey(-100px);
+    transform: translatey(-100px);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    padding: 10px;
+}
+
+.hovereffect a.info {
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin: 50px 0 0;
+    padding: 7px 14px;
+}
+
+.hovereffect a.info:hover {
+    box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect:hover img {
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.hovereffect:hover .overlay {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.hovereffect:hover h2,
+.hovereffect:hover a.info {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -ms-transform: translatey(0);
+    -webkit-transform: translatey(0);
+    transform: translatey(0);
+}
+
+.hovereffect:hover a.info {
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s;
+}
+
+
+/**HOVER IMAGE*/
+
+.page-header {
+    margin-top: 0;
+    border-bottom: none;
+    cursor: pointer;
+    color: #e48200;
+    text-align: center;
+    font-size: 45px !important;
+    font-family: 'PF Stamps pro metal', serif;
+    text-shadow: black 1px 0px, black 1px 1px, black 0px 1px, black -1px 1px, black -1px 0px, black -1px -1px, black 0px -1px, black 1px -1px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px;
+}
+
+.page-header p {
+    margin-top: 10px;
+    letter-spacing: 15px;
+}
+
+.page-header a {
+    text-decoration: none;
+    color: #e48200;
+}
+
+.page-header a:focus,
+.page-header a:hover {
+    color: #e48200;
+}
+
+td,
+th {
+    width: 75px;
+    height: 28px;
+    line-height: 14px;
+    overflow: hidden;
+}
+
+td {
+    color: #FFF;
+    padding: 4px 0px;
+    margin: 1px;
+    text-align: center;
+    letter-spacing: 0px;
+    background-color: #1C1D1F;
+    transition: all 0.2s ease-in-out;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+td:first-child,
+th {
+    background-color: transparent;
+    color: white;
+    font-size: 11px;
+    width: 1px;
+}
+
+tr:first-child > th:nth-child(n+7) {
+    color: #e48200;
+}
+
+thead th {
+    text-align: center;
+    letter-spacing: 2px;
+    padding-bottom: 5px;
+}
+
+.disabled-cell {
+    opacity: 0.6;
+}
+
+.enabled-cell {
+    cursor: pointer;
+}
+
+.enabled-cell:hover {
+    color: #282828;
+    background-color: white;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+}
+
+@media (max-width: 1303px) and (max-height: 480px) {
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .footer {
+        position: relative !important;
+    }
+}
+
+#InputMessage {
+    resize: vertical;
+    min-height: 32px;
+}
+
+.bfh-number-btn {
+    cursor: pointer !important;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-nav {
+    float: none;
+    text-align: center;
+}
+
+.navbar-nav li {
+    float: none;
+    display: inline-block;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+    text-shadow: 1px 1px 1px #353535;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    font-size: 14pt;
+    font-family: 'capture_it_2regular', serif;
+}
+
+.navbar-default .navbar-nav > li> a:hover {
+    color: #E48200;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    text-shadow: 1px 1px 1px #353535;
+    text-shadow: black 1px 0px, black 1px 1px, black 0px 1px, black -1px 1px, black -1px 0px, black -1px -1px, black 0px -1px, black 1px -1px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: transparent;
+    text-shadow: black 1px 0px, black 1px 1px, black 0px 1px, black -1px 1px, black -1px 0px, black -1px -1px, black 0px -1px, black 1px -1px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px;
+    color: #E48200;
+    font-size: inherit;
+    font-size: 14pt;
+}
+
+#logo {
+    display: inline;
+    height: 50px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.recent_reviews {
+    color: white;
+}
+
+.recent_reviews h1 {
+    overflow: hidden;
+}
+
+.recent_reviews>div:nth-child(2) {
+    border-left: 1px solid white;
+}
+
+.recent_reviews>div:nth-child(n+2)>h1 {
+    margin-top: 10px;
+}
+
+.reviews * {
+    color: white;
+}
+
+.reviews h1 {
+    overflow: hidden;
+    margin: 0;
+}
+
+.symbol-empty {
+    background-color: #ccc;
+}
+
+.symbol-filled {
+    background-color: black;
+}
+
+.rating {
+    margin-left: 25px;
+}
+
+.rate-date {
+    text-align: left;
+}
+
+.bfh-selectbox-options {
+    width: 100%;
+}
+
+.bfh-selectbox-options > div >ul {
+    max-width: none !important;
+    width: 100%;
+}
+
+.textblock {
+    color: white;
+}
+
+.textblock h1 {
+    font-style: italic;
+}
+
+body > div > .row:not(:first-child):not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.center-block {
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.reviews_list > div {
+    margin-bottom: 30px;
+}
+
+.reviews > div:first-child {
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.message_block {
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+.captcha > input {
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+#refresh_captcha {
+    display: inline-block;
+    cursor: pointer;
+}
