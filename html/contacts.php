@@ -1,14 +1,14 @@
 <?php
 /**Заголовок*/
 require_once "scripts/generete_header.php";
-$bootstrap = [
+$bootstrap = array(
 	'main'        => true,
 	'stars'       => true,
 	'notify'      => true,
 	'formhelpers' => true,
 	'validator'   => true,
 	'capchajs'    => true,
-];
+);
 
 /*Капча*/
 session_start();

@@ -1,10 +1,10 @@
 <?php
 /**Заголовок*/
 require_once "scripts/generete_header.php";
-$bootstrap = [
+$bootstrap = array(
 	'main'  => true,
 	'stars' => true,
-];
+);
 display_head("Quantum Reality", $bootstrap);
 echo "<body>";
 echo "<div class=\"container col-md-8  col-md-offset-2\">"; //8 Колонок Ширина и 2 отступ слева

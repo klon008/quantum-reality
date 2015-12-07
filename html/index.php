@@ -1,14 +1,14 @@
 <?php
 /**Заголовок*/
 require_once "scripts/generete_header.php";
-$bootstrap = [
+$bootstrap = array(
 	'main'        => true,
 	'notify'      => true,
 	'formhelpers' => true,
 	'validator'   => true,
 	'stars'       => true,
 	'renderjs'    => true,
-];
+);
 display_head("Quantum Reality", $bootstrap);
 echo "<body>";
 echo "<div class=\"container col-md-8  col-md-offset-2\">"; //8 Колонок Ширина и 2 отступ слева
@@ -18,20 +18,20 @@ display_navigation("main");
 
 /**Список проектов*/
 require_once "scripts/generete_projects_list.php";
-$projects = [
-	0 => [
+$projects = array(
+	0 => array(
 		"name" => "Аномалия",
 		"link" => "/images/anomaly_2.jpg",
-	],
-	1 => [
+	),
+	1 => array(
 		"name" => "Мафия",
 		"link" => "/images/mafia.jpg",
-	],
-	2 => [
+	),
+	2 => array(
 		"name" => "Oculus Rift",
 		"link" => "/images/virtual.jpg",
-	],
-];
+	),
+);
 display_projects_lost($projects);
 
 echo "<div id=\"new_table\" class=\"row\"></div>";
