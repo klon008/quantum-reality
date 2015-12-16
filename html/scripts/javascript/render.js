@@ -1,13 +1,7 @@
 var reservPrice = '200 руб.';
-var currentWeekDay = new Date();
+//var currentWeekDay = new Date(); Эта дата приходит из пхп для избежания проблем с врменными зонами
 //Максимальное количество недель пролистываемых
 var maxWeekCount = 3;
-
-function previousWeek() {
-    $("#reserve_table").fadeOut(400, function() {
-
-    });
-}
 
 /**
  * Клик следующей недели или предидущей
@@ -218,7 +212,8 @@ function do_ajax(inSheduleId, inDate, Sender) {
         email: $("#InputEmail").val(),
         contactPhone: $("#phone-input").val(),
         numberParticipants: $("#inputGroupSize").val(),
-        comment: $("#InputMessage").val()
+        comment: $("#InputMessage").val(),
+        selected_game: $("#Input-selectbox").val()
     });
 
     $.ajax({

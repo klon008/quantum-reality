@@ -1,5 +1,6 @@
 <?php
-/**Заголовок*/
+/**Страница отзывов*/
+require_once "app_config.php";
 require_once "scripts/generete_header.php";
 require_once "db_config.php";
 $bootstrap = array(
@@ -12,7 +13,7 @@ display_head("Quantum Reality", $bootstrap);
 echo "<body>";
 echo "<div class=\"container col-md-8  col-md-offset-2\">"; //8 Колонок Ширина и 2 отступ слева
 /**Навигация*/
-require_once "scripts/generete_navigation.php";
+require_once "scripts/generate_navigation.php";
 display_navigation("reviews");
 ?>
 <div class="row">
@@ -26,7 +27,7 @@ display_navigation("reviews");
 if (is_null($conn)) {
 	throw new Exception('Соединение с бд не было создано');
 }
-//$conn              = new mysqli(DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME);
+
 $sql_last_comments = "SELECT id, author, comment, date, quality FROM rdb.recent_reviews
   ORDER BY date DESC;";
 
@@ -55,6 +56,7 @@ mysqli_free_result($last_comment_query);
 ?>
 
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

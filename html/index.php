@@ -1,5 +1,6 @@
 <?php
-/**Заголовок*/
+/**Главная*/
+require_once "app_config.php";
 require_once "scripts/generete_header.php";
 $bootstrap = array(
 	'main'        => true,
@@ -13,48 +14,21 @@ display_head("Quantum Reality", $bootstrap);
 echo "<body>";
 echo "<div class=\"container col-md-8  col-md-offset-2\">"; //8 Колонок Ширина и 2 отступ слева
 /**Навигация*/
-require_once "scripts/generete_navigation.php";
+require_once "scripts/generate_navigation.php";
 display_navigation("main");
 
 /**Список проектов*/
-require_once "scripts/generete_projects_list.php";
-$projects = array(
-	0 => array(
-		"name" => "Аномалия",
-		"link" => "/images/anomaly_2.jpg",
-	),
-	1 => array(
-		"name" => "Мафия",
-		"link" => "/images/mafia.jpg",
-	),
-	2 => array(
-		"name" => "Oculus Rift",
-		"link" => "/images/virtual.jpg",
-	),
-);
-display_projects_lost($projects);
-
-echo "<div id=\"new_table\" class=\"row\"></div>";
-
+require_once "scripts/generate_projects_list.php";
 require_once "db_config.php";
-require_once "scripts/insert_row.php";
 
-$sql_shedule  = "SELECT id,text_shedule FROM work_schedule ORDER BY count_shedule ASC;"; //Результат
-$sql_reserved = "SELECT id,date,work_schedule_fk FROM registered_users WHERE (date between CURDATE()-WEEKDAY(CURDATE())
- AND DATE_ADD(CURDATE()-WEEKDAY(CURDATE()), INTERVAL 7 DAY));";
-$shedule_query  = $conn->query($sql_shedule);
-$reserved_query = $conn->query($sql_reserved);
+/**Новые Квесты*/
+$sql_get_quest = "SELECT id, game_name, image_link FROM game_list ORDER BY id DESC LIMIT 3";
+$quest_query   = $conn->query($sql_get_quest);
+$result_quest  = mysqli_parse_array($quest_query);
+display_projects_lost($result_quest);
 
-$result_shedule         = mysqli_parse_array($shedule_query);
-$result_reserved        = mysqli_parse_array($reserved_query);
-$grid_title             = json_encode(generete_dates());
-$result_reserved_mapped = array_map("map_format_date", $result_reserved);
-
-print '<script language="javascript">firstRender(' . json_encode($result_reserved_mapped) .
-', ' . $grid_title . ', ' . json_encode($result_shedule) . ');</script>';
-
-mysqli_free_result($shedule_query);
-mysqli_free_result($reserved_query);
+/*Таблицу подтягиваем*/
+require "scripts/generate_table.php";
 
 require_once "scripts/generate_recent_reviews.php";
 generate_recent_reviews($conn);

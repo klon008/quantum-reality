@@ -1,5 +1,7 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . "/db_config.php";
+
 function generate_recent_reviews($conn) {
 	if (is_null($conn)) {
 		throw new Exception('Соединение с бд не было создано');

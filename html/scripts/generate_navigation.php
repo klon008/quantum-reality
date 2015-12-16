@@ -4,6 +4,8 @@
  * @param  [type] $in_selected_tab [description]
  * @return [type]                  [description]
  */
+ini_set('display_errors', 'On');
+error_reporting('E_ALL');
 function display_navigation($in_selected_tab) {
 	$active_tab = "class='active'";
 	$all_tabs   = [
@@ -46,7 +48,7 @@ function display_navigation($in_selected_tab) {
 
 <div class="page-header row">
   <h1>
-    <a src="index">
+    <a href="/index.php">
       <img src="images/123.png" id="logo">Quantum Reality<img src="images/123.png" id="logo">
     </a>
   </h1>

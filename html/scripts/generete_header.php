@@ -76,7 +76,12 @@ EOD;
   src="/scripts/javascript/contacts.js"></script>
 EOD;
 	}
-
+	if (!is_null($bootstrap) && isset($bootstrap['reservejs'])) {
+		echo <<<EOD
+<script type="text/javascript"
+  src="/scripts/javascript/reserve.js"></script>
+EOD;
+	}
 	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/style.css\">";
 	echo "</head>";
 }
@@ -88,9 +93,6 @@ function display_footer() {
 <p>Разработка сайта: Селетков П.А. т.+7-923-461-**-**, email: seletckov.p@yandex.ru</p>
 </div>
 </div>
-<?php
-require "scripts/generate_modal.php";
-?>
 </body>
 </html>
 EOD;

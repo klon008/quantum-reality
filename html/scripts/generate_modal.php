@@ -66,10 +66,17 @@
               <div class="form-group">
                   <label for="InputName" class="control-label">Выберите квест:</label>
                 <div class="input-group">
-                   <div class="bfh-selectbox" data-name="selectbox1">
-                     <div data-value="1">Аномалия</div>
-                      <div data-value="2">Мафия</div>
-                      <div data-value="3">Oculus Rift</div>
+                   <div class="bfh-selectbox" data-name="selectbox1" id="Input-selectbox" data-value="2">
+                    <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/db_config.php";
+$sql_get_quest_selects = "SELECT id, game_name FROM game_list ORDER BY id DESC";
+$quest_query_selects   = $conn->query($sql_get_quest_selects);
+$result_quest_selects  = mysqli_parse_array($quest_query_selects);
+foreach ($result_quest as $key => $value) {
+	echo "<div data-value=\"{$value['id']}\">{$value['game_name']}</div>";
+}
+mysqli_free_result($quest_query_selects);
+?>
                     </div>
                   <span class="input-group-addon"><span class="glyphicon glyphicon-knight"></span></span>
                 </div>

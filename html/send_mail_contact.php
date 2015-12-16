@@ -1,4 +1,5 @@
 <?php
+require_once "app_config.php";
 require_once "db_config.php";
 $err_msg  = "";
 $succ_msg = "";
@@ -65,7 +66,7 @@ if ($securimage->check($captcha) == false) {
 /* дополнительные шапки */
 	$headers .= "From: Quantum Reality <klon.asuss.comm@mail.ru>\r\n";
 
-	mail($to, $subject, $message, $headers);
+	mail(SITE_ADMIN_EMAIL, $subject, $message, $headers);
 }
 $result_ajax = array(
 	'errorMsg'   => $err_msg,

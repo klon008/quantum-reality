@@ -94,7 +94,7 @@ table {
     filter: alpha(opacity=0);
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    margin: 50px 0 0;
+    margin: 25px 0 0;
     padding: 7px 14px;
 }
 
@@ -328,6 +328,12 @@ thead th {
     text-align: left;
 }
 
+.bfh-selectbox[disabled] .form-control{
+    background-color: rgb(238, 238, 238);
+    color: rgb(85, 85, 85);
+    cursor: not-allowed;
+}
+
 .bfh-selectbox-options {
     width: 100%;
 }
@@ -388,4 +394,49 @@ body > div > .row:not(:first-child):not(:last-child) {
 #refresh_captcha {
     display: inline-block;
     cursor: pointer;
+}
+
+.game_block_informer > div {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+
+.back_arrow {
+    margin: 0px 5px 5px 5px;
+    display: inline-block;
+    font-size: x-large;
+    text-decoration: none;
+    color: #FFF;
+}
+.back_arrow:link {
+    color: #FFF;
+}
+.back_arrow:visited {
+    margin: 0px 5px 5px 5px;
+    display: inline-block;
+    font-size: x-large;
+    text-decoration: none;
+    color: #FFF;
+}
+.back_arrow:hover {
+    margin: 0px 5px 5px 5px;
+    display: inline-block;
+    font-size: x-large;
+    color: #FFF;
+}
+.back_arrow:active {
+    margin: 0px 5px 5px 5px;
+    display: inline-block;
+    font-size: x-large;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.disabled-text, .disabled-text:link, .disabled-text:visited, .disabled-text:hover, .disabled-text:active {
+    color: #9A9A9A;
+    text-decoration: none;
 }

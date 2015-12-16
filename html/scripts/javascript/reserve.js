@@ -1,9 +1,11 @@
-function asd(SenderID, Sender) {
+function selectFromGameList(SenderID, Sender) {
 
     $(".game_block").fadeOut(400, function() {
-		var imgSrc = $("#"+SenderID+"img").attr('src');
-    	var sh2 = $("#"+SenderID+"h2").html();
-    	var comment = $("#"+SenderID+"comment").html();
+		var imgSrc = $("#game"+SenderID+"img").attr('src');
+    	var sh2 = $("#game"+SenderID+"h2").html();
+    	var comment = $("#game"+SenderID+"comment").html();
+
+        $("div#Input-selectbox.bfh-selectbox").addClass('disabled').attr('disabled', true).val(SenderID);
 
     	$(".game_block_informer h1").html(sh2);
     	$(".game_block_informer img").attr('src', imgSrc);
@@ -12,7 +14,7 @@ function asd(SenderID, Sender) {
     });
 }
 
-function dsa() {
+function backToGameList() {
     $(".game_block_informer").fadeOut(400, function() {
         $(".game_block").fadeIn();
     });

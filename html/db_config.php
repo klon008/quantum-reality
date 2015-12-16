@@ -1,4 +1,5 @@
 <?php
+/**Конфиги коннекта для базы данных*/
 ini_set('display_errors', 'On');
 // Set up debug mode
 define("DEBUG_MODE", true);

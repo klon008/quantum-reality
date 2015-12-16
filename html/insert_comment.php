@@ -1,4 +1,6 @@
 <?php
+/**Служебный скрипт для Аякса*/
+require_once "app_config.php";
 require_once "db_config.php";
 $err_msg  = "";
 $succ_msg = "";
