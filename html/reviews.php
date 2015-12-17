@@ -28,7 +28,7 @@ if (is_null($conn)) {
 	throw new Exception('Соединение с бд не было создано');
 }
 
-$sql_last_comments = "SELECT id, author, comment, date, quality FROM rdb.recent_reviews
+$sql_last_comments = "SELECT id, author, comment, date, quality FROM recent_reviews
   ORDER BY date DESC;";
 
 $last_comment_query  = $conn->query($sql_last_comments);

@@ -8,7 +8,7 @@ function generate_recent_reviews($conn) {
 		exit;
 	}
 	//$conn              = new mysqli(DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME);
-	$sql_last_comments = "SELECT id, author, comment, date, quality FROM rdb.recent_reviews
+	$sql_last_comments = "SELECT id, author, comment, date, quality FROM recent_reviews
   ORDER BY date DESC LIMIT 3;";
 
 	$last_comment_query  = $conn->query($sql_last_comments);

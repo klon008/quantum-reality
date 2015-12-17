@@ -12,8 +12,8 @@ define("DEBUG_MODE", true);
 
 // Database connection constants
 define("DATABASE_HOST", "localhost");
-define("DATABASE_USERNAME", "site");
-define("DATABASE_PASSWORD", "midnightowl");
+define("DATABASE_USERNAME", "root");
+define("DATABASE_PASSWORD", "deadlinux");
 define("DATABASE_NAME", "rdb");
 
 $conn = new mysqli(DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME);

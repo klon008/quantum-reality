@@ -64,7 +64,7 @@
 
               <!-- Выберите квест -->
               <div class="form-group">
-                  <label for="InputName" class="control-label">Выберите квест:</label>
+                  <label for="InputName" class="control-label">Выберите игру:</label>
                 <div class="input-group">
                    <div class="bfh-selectbox" data-name="selectbox1" id="Input-selectbox" data-value="2">
                     <?php

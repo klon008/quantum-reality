@@ -1,4 +1,4 @@
-var reservPrice = '200 руб.';
+var reservPrice = 'забронировать';
 //var currentWeekDay = new Date(); Эта дата приходит из пхп для избежания проблем с врменными зонами
 //Максимальное количество недель пролистываемых
 var maxWeekCount = 3;

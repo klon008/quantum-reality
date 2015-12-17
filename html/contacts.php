@@ -27,8 +27,32 @@ display_navigation("contacts");
 
 <div class="row textblock col-md-6">
 <div>
-<h2>Контакты</h2>
+<h2>Контактная информация</h2>
+<p  style="font-size: 23px;">Ежедневно с 12:00 до 23:00<br>
+- Адрес: Кемеровская обл, г.Калтан, ул.Горького, 14а.<br>
+- Телефон: 8(913) 120 97 97</p>
+<p  style="font-size: 23px;">- Email: <a href="mailto:info@qrq42.ru">info@qrq42.ru</a></p>
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+
+<p  style="font-size: 23px;">Мы в Вконтакте:</p>
+
+<!-- VK Widget -->
+<div id="vk_groups"></div>
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 1, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 99859347);
+</script>
+
+   
+<p>-------------------------------------</p>
 <p  style="font-size: 23px;">Вы можете связаться с нами посредством формы. При заполнении формы убедитесь, пожалуйста, что вы правильно ввели свои данные, иначе мы не сможем ответить вам.</p>
+</div>
+</div>
+
+<div class="row">
+<div class="message_block col-md-6">
+<form role="form" data-toggle="validator" id="modal_form">
+<script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=-sLmrtpAJXg3q_wx2W7a0hh9Pkq14wrr&width=390&height=380&lang=ru_RU&sourceType=constructor"></script>
+</form>
 </div>
 </div>
 
