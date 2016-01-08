@@ -7,6 +7,7 @@ $bootstrap = array(
 	'main'           => true,
 	'stars'          => true,
 	'validator'      => true,
+	'notify'         => true,
 	'send_reviewsjs' => true,
 );
 display_head("Quantum Reality", $bootstrap);
@@ -21,7 +22,7 @@ display_navigation("reviews");
 		<a class="btn btn-primary btn-lg" role="button" onclick="$('#myModal').modal();"><span class="fa fa-pencil-square-o"></span> Оставить свой отзыв</a>
 	</div>
 </div>
-<div class="row reviews_list">
+<div class="row reviews_list" id="reviews_list">
 
 <?php
 if (is_null($conn)) {
@@ -93,7 +94,7 @@ mysqli_free_result($last_comment_query);
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="send_ajax_rewiews" type="submit" class="btn btn-warning" onclick='do_ajax()'>Отправить</button>
+                        <button id="send_ajax_rewiews" type="submit" class="btn btn-warning">Отправить</button>
                     </div>
             	</div>
             </form>

@@ -26,16 +26,6 @@ body {
     font-smoothing: subpixel-antialiased;
 }
 
-table {
-    table-layout: fixed;
-    /* Фиксированная ширина ячеек */
-    width: 100%;
-    /* Ширина таблицы */
-    border-collapse: separate;
-    border-spacing: 1px;
-}
-
-
 /*HOVER IMAGE*/
 
 .hovereffect {
@@ -155,16 +145,25 @@ table {
 .page-header a:hover {
     color: #e48200;
 }
+/**TABLE*/
+.reservation {
+    table-layout: fixed;
+    /* Фиксированная ширина ячеек */
+    width: 100%;
+    /* Ширина таблицы */
+    border-collapse: separate;
+    border-spacing: 1px;
+}
 
-td,
-th {
+.reservation td,
+.reservation th {
     width: 75px;
     height: 28px;
     line-height: 14px;
     overflow: hidden;
 }
 
-td {
+.reservation td {
     color: #FFF;
     padding: 4px 0px;
     margin: 1px;
@@ -181,19 +180,19 @@ td {
     user-select: none;
 }
 
-td:first-child,
-th {
+.reservation td:first-child,
+.reservation th {
     background-color: transparent;
     color: white;
     font-size: 11px;
     width: 1px;
 }
 
-tr:first-child > th:nth-child(n+7) {
+.reservation tr:first-child > th:nth-child(n+7) {
     color: #e48200;
 }
 
-thead th {
+.reservation thead th {
     text-align: center;
     letter-spacing: 2px;
     padding-bottom: 5px;
@@ -237,15 +236,30 @@ thead th {
     background-color: transparent;
     border-color: transparent;
 }
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: none;
+        text-align: center;
+    }
 
-.navbar-nav {
-    float: none;
-    text-align: center;
+    .navbar-nav li {
+        float: none;
+        display: inline-block;
+    }
 }
 
-.navbar-nav li {
-    float: none;
-    display: inline-block;
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: none; 
+}
+
+.navbar-collapse {
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
+     border-top: 0px solid transparent; 
+    -webkit-box-shadow: inset 0 0px 0 rgba(255,255,255,.1);
+    box-shadow: inset 0 0px 0 rgba(255,255,255,.1);
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -295,8 +309,16 @@ thead th {
     overflow: hidden;
 }
 
-.recent_reviews>div:nth-child(2) {
-    border-left: 1px solid white;
+@media (min-width: 992px) {
+    .recent_reviews>div:nth-child(2) {
+        border-left: 1px solid white;
+    }
+}
+
+@media (max-width: 992px){
+    .recent_reviews>div:nth-child(2) {
+        border-top: 1px solid white;
+    }
 }
 
 .recent_reviews>div:nth-child(n+2)>h1 {
@@ -359,6 +381,11 @@ body > div > .row:not(:first-child):not(:last-child) {
     float: none;
     margin: 0 auto;
     text-align: center;
+}
+
+.center-block-without-align {
+    float: none;
+    margin: 0 auto;
 }
 
 .reviews_list > div {
@@ -439,4 +466,74 @@ h2 {
 .disabled-text, .disabled-text:link, .disabled-text:visited, .disabled-text:hover, .disabled-text:active {
     color: #9A9A9A;
     text-decoration: none;
+}
+
+.bs-example {
+    margin-right: 0;
+    margin-left: 0;
+    /* background-color: #fff; */
+    color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: relative;
+    padding: 15px 15px 15px;
+    border-color: #e5e5e5 #eee #eee;
+    border-style: solid;
+    border-width: 1px 0;
+    -webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+}
+
+.prise_table tr td:nth-child(1){
+        text-align: right;
+        width: 74px;
+}
+.prise_table tr td:nth-child(1) > img{
+        text-align: right;
+        width: 100%;
+}
+
+.prise_table {
+    width: 100%;
+    border-top: 1px solid #dce2e8;
+    font-family: 'Roboto Condensed',sans-serif;
+    margin: 0 0 30px;
+}
+
+.prise_table tr td:nth-child(2) .big {
+    font-size: 24px;
+    color: #323232;
+}
+
+.prise_table tr td:nth-child(2) {
+    width: 285px;
+    padding-left: 25px;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.prise_table tr td:nth-child(3) {
+    font-size: 68px;
+    color: #d75f2e;
+    white-space: nowrap;
+}
+
+.prise_table td {
+    vertical-align: middle;
+    border-bottom: 1px solid #dce2e8;
+}
+
+.image_frame {
+    width: 100%;
+    height: 512px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image_frame img{
+    height: 100%;
+    margin: auto;
 }

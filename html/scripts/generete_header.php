@@ -30,6 +30,17 @@ EOD;
 <script type="text/javascript" src="/twbs-bootstrap/dist/js/bootstrap.js"></script>
 EOD;
 	}
+	if (!is_null($bootstrap) && isset($bootstrap['momentsjs'])) {
+		$current_time_zone = date_default_timezone_get();
+		echo <<<EOD
+<script type="text/javascript">
+var timeZone = '{$current_time_zone}';
+</script>
+<script type="text/javascript"
+  src="/scripts/javascript/moment-with-locales.js"></script>
+<script  type="text/javascript" src="/scripts/javascript/moment-timezone-with-data.js"></script>
+EOD;
+	}
 	if (!is_null($bootstrap) && isset($bootstrap['notify'])) {
 		echo <<<EOD
 <script type="text/javascript" src="/twbs-bootstrap/js/notify.min.js"></script>
@@ -76,12 +87,6 @@ EOD;
   src="/scripts/javascript/contacts.js"></script>
 EOD;
 	}
-	if (!is_null($bootstrap) && isset($bootstrap['reservejs'])) {
-		echo <<<EOD
-<script type="text/javascript"
-  src="/scripts/javascript/reserve.js"></script>
-EOD;
-	}
 	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style/style.css\">";
 	echo "</head>";
 }
@@ -90,7 +95,7 @@ function display_footer() {
 	echo <<<EOD
 <div class="row footer">
 <p>Все права защищены.© Copyright 2015.</p>
-<p>Разработка сайта: Селетков П.А. т.+7-923-461-**-**, email: seletckov.p@yandex.ru</p>
+<p>Разработка сайта: Селетков П.А. т.+7-923-461-32-44, email: seletckov.p@yandex.ru</p>
 </div>
 </div>
 </body>

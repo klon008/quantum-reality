@@ -14,7 +14,7 @@ function display_projects_lost($array_projects = array()) {
 	<img src="{$value["image_link"]}" alt="">
 	<div class="overlay">
 	<h2>{$value["game_name"]}</h2>
-	<a class="info" href="/reserve.php?project_id={$value["id"]}">Подробнее</a>
+	<a class="info" href="/game.php?project_id={$value["id"]}">Подробнее</a>
 	</div>
 	</div>
 	</div>

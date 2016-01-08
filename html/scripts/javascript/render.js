@@ -3,6 +3,15 @@ var reservPrice = 'забронировать';
 //Максимальное количество недель пролистываемых
 var maxWeekCount = 3;
 
+/**Подключаем momentsjs*/
+try{
+    /**Локаль - Русский, Таймзона сервера(Задается в generate_header.php)*/
+    var now = moment().locale('ru').tz(timeZone);
+    var nowMonday = now.startOf('week');
+} catch(e) {
+    alert('FARAL ERROR :' + e.name);
+}
+
 /**
  * Клик следующей недели или предидущей
  * @param  {[type]}  inDOMid [description]
@@ -64,36 +73,45 @@ function createTable(content, inDate) {
     var d;
 
     if (inDate){
-        d = new Date(inDate.valueOf());
+        d = inDate.startOf('week');
+        //d = new Date(inDate.valueOf());
     } else {
-        d = new Date(currentWeekDay.valueOf());
+        d = moment(nowMonday);
     }
-
-    var to = d.setTime(d.getTime() - (d.getDay() ? d.getDay() : 7) * 24 * 60 * 60 * 1000);
+    weekDates.push(moment(d));
+    //var to = d.setTime(d.getTime() - (d.getDay() ? d.getDay() : 7) * 24 * 60 * 60 * 1000);
+    
     for (var i = 1; i < 8; i++) {
-        weekDates.push(new Date(to).addDays(i));
+        weekDates.push(moment(d.add(1, 'd')));
     }
     /*Формируем даты*/
 
     /*Заголовок*/
-    for (i = 0; i < weekDates.length; i++) {
-        content += '<th>' + timeConverter(weekDates[i]) + '</th>';
+    for (i = 0; i < (weekDates.length-1); i++) {
+        content += '<th>' + weekDates[i].format('DD.MM.YYYY dddd') + '</th>';
     }
     content += '</tr></thead><tbody>';
     /*Заголовок*/
 
     /*Рабочее время*/
+    /*Каждый рабочий час*/
     for (i = 0; i < workTimes.length; i++) {
 
         content += '<tr><th>' + workTimes[i]['text_shedule'] + '</th>';
 
         /*Цикл формирует ячейки*/
-        for (var j = 0; j < weekDates.length; j++) {
+        var todayDate = moment();
+        /**Пробегаемся па каждому дню недели*/
+        for (var j = 0; j < (weekDates.length-1); j++) {
 
-            var todayDate = new Date();
-            if (weekDates[j] <= todayDate) {
+            /**Если этот день недели в прошлом(Относительно начала дня)*/
+            if (weekDates[j].isBefore(todayDate.startOf('day'))) {
                 content += '<td class="disabled-cell"></td>';
-            } else {
+            
+        } else if (holidays.indexOf(moment(weekDates[j]).format('DD.MM.YYYY')) !== -1){
+                content += '<td class="disabled-cell"></td>';
+        } else{
+
                 filteredWorkTimes = getFilteredWorkTimes(workTimes[i]['id'], weekDates[j], shedule);
                 if (filteredWorkTimes.length == 0) {
                     content += '<td class="enabled-cell" ' + getonclick(workTimes[i]['id'], weekDates[j]) + '>' + reservPrice + '</td>';
@@ -109,21 +127,17 @@ function createTable(content, inDate) {
 
     }
 
-    /**Рабочее время**/
+    /*Метод проверки принадлежности выбранной массиву "Зарезервированых" дат*/
     function getFilteredWorkTimes(inId, inDate, inSheduleId) {
-        function getNormalizeDate(iValue) {
-            var tempDate = new Date(iValue);
-            var TimeOfDate = (tempDate.getSeconds() * 1000) + (tempDate.getMinutes() * 60 * 1000) + (tempDate.getHours() * 60 * 60 * 1000) + tempDate.getMilliseconds();
-            var result = tempDate - TimeOfDate;
-            return result;
-        }
         var result = [];
-        var tempDate = getNormalizeDate(inDate);
-        result = shedule.filter(function(row) {
-            if (row['work_schedule_fk'] == inId && tempDate == getNormalizeDate(row['date'] * 1000)) {
+        /*Проверяемая дата*/
+        var date = moment(inDate).format('DD.MM.YYYY');
+        var getFilteredRow = function(row) {
+            if (row['work_schedule_fk'] == inId && date == row['date']){
                 return row;
             }
-        });
+        }
+        result = shedule.filter(getFilteredRow);
         return result;
     }
 
@@ -140,12 +154,12 @@ function createTable(content, inDate) {
  */
 function firstRender() {
     if (workTimes) {
-        var naviagetion = "<div class=\"col-md-12 center-block\"><a id=\"toPrevWeek\" class=\"back_arrow disabled-text\" href=\"javascript:previousWeek;\" onclick=\"\"><span class=\"fa fa-arrow-circle-left\"></span> Предидущая неделя</a> <span style=\"color: #FFF\">||</span> <a id=\"toNextWeek\" class=\"back_arrow\" href=\"javascript:void(0);\" onclick=\"newxtWeek('reserve_table0', true);\">Слудующая неделя <span class=\"fa fa-arrow-circle-right\"></span></a></div>";
-        var content = naviagetion + "<table id=\"reserve_table0\">";
+        var naviagetion = "<div class=\"col-md-12 center-block\"><a id=\"toPrevWeek\" class=\"back_arrow disabled-text\" href=\"javascript:void(0);\" onclick=\"\"><span class=\"fa fa-arrow-circle-left\"></span> Предидущая неделя</a> <span style=\"color: #FFF\">||</span> <a id=\"toNextWeek\" class=\"back_arrow\" href=\"javascript:void(0);\" onclick=\"newxtWeek('reserve_table0', true);\">Слудующая неделя <span class=\"fa fa-arrow-circle-right\"></span></a></div>";
+        var content = naviagetion + "<table id=\"reserve_table0\" class=\"reservation\">";
         createTable(content);
         for (var i = 1; i < maxWeekCount; i++) {
-            var nextWeekDay = currentWeekDay.addDays(7*i);
-            createTable("<table id=\"reserve_table"+i+"\" style=\"display: none;\">", nextWeekDay);
+            var nextWeekDay = moment(nowMonday).add(i*7, 'd');
+            createTable("<table id=\"reserve_table"+i+"\" style=\"display: none;\" class=\"reservation\">", nextWeekDay);
         }
     }
 }

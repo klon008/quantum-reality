@@ -19,7 +19,7 @@ function refreshCaptcha() {
  * @param  {[type]} Sender      [description]
  * @return {[type]}             [description]
  */
-function do_ajax(inSheduleId, inDate, Sender) {
+function do_ajax_contactform(inSheduleId, inDate, Sender) {
     var outData = JSON.stringify({
         name: $("#InputName").val(),
         email: $("#InputEmail").val(),
@@ -48,9 +48,9 @@ function do_ajax(inSheduleId, inDate, Sender) {
                     position: "bottom right"
                 });
 
-                $('input').prop('disabled', true);
-                $('textarea').prop('disabled', true);
-                $('#send_ajax').addClass('disabled');
+                $('#contact_form input').prop('disabled', true);
+                $('#contact_form textarea').prop('disabled', true);
+                $('#contact_form #send_ajax').addClass('disabled');
                 document.getElementById('send_ajax').onclick = undefined;
 
                 $(Sender).animate({
@@ -86,7 +86,7 @@ $(function() {
         }
     });
 
-    $('#modal_form').validator().on('submit', function(e) {
+    $('#contact_form').validator().on('submit', function(e) {
         if (e.isDefaultPrevented()) {
             $.notify("Вы заполнили не все требуемые поля", {
                 className: "error",
@@ -94,8 +94,8 @@ $(function() {
             });
             return false;
         } else {
-            settings = $('#modal_form').data("modal_settings");
-            do_ajax(settings["shedule"], settings["date"], settings["sender"]);
+            settings = $('#contact_form').data("modal_settings");
+            do_ajax_contactform(settings["shedule"], settings["date"], settings["sender"]);
             return false;
         }
     })

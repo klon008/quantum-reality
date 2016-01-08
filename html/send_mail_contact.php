@@ -40,7 +40,7 @@ if ($securimage->check($captcha) == false) {
 
 	$conn->close();
 	/**Адрес на который будет отстукивать почта*/
-	$to = "<seletckov.p@yandex.ru>";
+	$to = SITE_ADMIN_EMAIL;
 	/**Тема письма*/
 	$subject = "Обратная связь с сайта quantum reality";
 	/**Текст письма*/
