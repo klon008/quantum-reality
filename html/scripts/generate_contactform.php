@@ -60,10 +60,10 @@ function generate_contactform($b_class = "col-md-6", $id = "\"\"", $additional_i
       </div>
 
       <div class="hidden">
-          <input type=\"hidden\" value="{$additional_info}"/>
+          <input id="contact_form_additional_info" type=\"hidden\" value="{$additional_info}"/>
       </div>
 <div>
-  <button id="send_ajax" type="submit" class="btn btn-warning" onclick=''>Отправить</button>
+  <button id="send_ajax" type="submit" class="btn btn-warning"'>Отправить</button>
 </div>
 </form>
 </div>

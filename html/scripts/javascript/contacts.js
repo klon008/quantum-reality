@@ -19,13 +19,14 @@ function refreshCaptcha() {
  * @param  {[type]} Sender      [description]
  * @return {[type]}             [description]
  */
-function do_ajax_contactform(inSheduleId, inDate, Sender) {
+function do_ajax_contactform(Sender) {
     var outData = JSON.stringify({
         name: $("#InputName").val(),
         email: $("#InputEmail").val(),
         contactPhone: $("#phone-input").val(),
         comment: $("#InputMessage").val(),
-        captcha: $("#2xCc").val()
+        captcha: $("#2xCc").val(),
+        additional_info: $("#contact_form_additional_info").val()
     });
 
     $.ajax({
@@ -47,17 +48,7 @@ function do_ajax_contactform(inSheduleId, inDate, Sender) {
                     className: "success",
                     position: "bottom right"
                 });
-
-                $('#contact_form input').prop('disabled', true);
-                $('#contact_form textarea').prop('disabled', true);
-                $('#contact_form #send_ajax').addClass('disabled');
-                document.getElementById('send_ajax').onclick = undefined;
-
-                $(Sender).animate({
-                    opacity: 0.6
-                }, 600, function() {
-                    $(this).html('');
-                }).removeClass('enabled-cell').addClass('disabled-cell');
+                
             }
         }
     });
@@ -94,8 +85,10 @@ $(function() {
             });
             return false;
         } else {
-            settings = $('#contact_form').data("modal_settings");
-            do_ajax_contactform(settings["shedule"], settings["date"], settings["sender"]);
+            $('#contact_form input').prop('disabled', true);
+            $('#contact_form textarea').prop('disabled', true);
+            $('#contact_form #send_ajax').addClass('disabled');
+            do_ajax_contactform(this);
             return false;
         }
     })

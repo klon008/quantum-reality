@@ -69,7 +69,7 @@
                    <div class="bfh-selectbox" data-name="selectbox1" id="Input-selectbox" data-value="2">
                     <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/db_config.php";
-$sql_get_quest_selects = "SELECT id, game_name FROM game_list WHERE disabled = 0 ORDER BY id DESC";
+$sql_get_quest_selects = "SELECT id, game_name FROM game_list WHERE disabled = 0 AND game_type = '' ORDER BY id DESC";
 $quest_query_selects   = $conn->query($sql_get_quest_selects);
 $result_quest_selects  = mysqli_parse_array($quest_query_selects);
 foreach ($result_quest_selects as $key => $value) {

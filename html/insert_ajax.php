@@ -65,8 +65,7 @@ $message = "<html>
 <body>
     <h2>Имя:</h2>
     <p>{$name}</p>
-    <h2>Комментарий:</h2>
-    <p>{$comment}</p>
+    <h2>Реквизиты:</h2>
     <a href=\"tel:{$contact_phone}\">
         <p><small>{$contact_phone}</small></p>
     </a>
@@ -94,7 +93,7 @@ $message = "<html>
 
 $headers = "Content-type: text/html; charset=utf-8 \r\n";
 /* дополнительные шапки */
-$headers .= "From: Quantum Reality <klon.asuss.comm@mail.ru>\r\n";
+$headers .= "From: Quantum_Reality\r\n";
 
 mail(SITE_ADMIN_EMAIL, $subject, $message, $headers);
 $conn->close();

@@ -21,13 +21,13 @@ function display_head($page_title = "", $bootstrap = NULL) {
   <meta name="viewport" content="width=device-width, initial-scale = 1.0">
   <title>{$page_title}</title>
   <script type="text/javascript"
-          src="/scripts/javascript/jquery-2.1.4.js"></script>
+          src="/scripts/javascript/jquery-2.1.4.min.js"></script>
 EOD;
 	if (!is_null($bootstrap) && isset($bootstrap['main'])) {
 		echo <<<EOD
 <!-- BOOTSTRAP -->
 <link href="/twbs-bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/twbs-bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="/twbs-bootstrap/dist/js/bootstrap.min.js"></script>
 EOD;
 	}
 	if (!is_null($bootstrap) && isset($bootstrap['momentsjs'])) {
@@ -37,8 +37,8 @@ EOD;
 var timeZone = '{$current_time_zone}';
 </script>
 <script type="text/javascript"
-  src="/scripts/javascript/moment-with-locales.js"></script>
-<script  type="text/javascript" src="/scripts/javascript/moment-timezone-with-data.js"></script>
+  src="/scripts/javascript/moment-with-locales-min.js"></script>
+<script  type="text/javascript" src="/scripts/javascript/moment-timezone-with-data-min.js"></script>
 EOD;
 	}
 	if (!is_null($bootstrap) && isset($bootstrap['notify'])) {
@@ -49,13 +49,13 @@ EOD;
 	if (!is_null($bootstrap) && isset($bootstrap['formhelpers'])) {
 		echo <<<EOD
 <link href="/twbs-bootstrap/bootstrapformhelper/css/bootstrap-formhelpers.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/twbs-bootstrap/bootstrapformhelper/js/bootstrap-formhelpers.js"></script>
+<script type="text/javascript" src="/twbs-bootstrap/bootstrapformhelper/js/bootstrap-formhelpers.min.js"></script>
 <!-- BOOTSTRAP -->
 EOD;
 	}
 	if (!is_null($bootstrap) && isset($bootstrap['validator'])) {
 		echo <<<EOD
-<script type="text/javascript" src="/twbs-bootstrap/js/validator/validator.js"></script>
+<script type="text/javascript" src="/twbs-bootstrap/js/validator/validator.min.js"></script>
 EOD;
 	}
 	if (!is_null($bootstrap) && isset($bootstrap['stars'])) {
@@ -82,7 +82,7 @@ EOD;
 	if (!is_null($bootstrap) && isset($bootstrap['capchajs'])) {
 		echo <<<EOD
 <script type="text/javascript"
-  src="/scripts/javascript/jQueryRotate.js"></script>
+  src="/scripts/javascript/jQueryRotate-min.js"></script>
 <script type="text/javascript"
   src="/scripts/javascript/contacts.js"></script>
 EOD;

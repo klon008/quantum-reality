@@ -88,7 +88,6 @@ echo $text_2 = <<<EOD
 EOD;
 
 if ($game["disabled"] == 0) {
-	/**Если тип игры "Заказ по форме обратной связи"*/
 	if ($game["game_type"] == "") {
 		echo "<div class=\"col-md-12\" id=\"reserve_table\"><h2 class=\"center-block textblock\">Выберите удобную дату и время</h2>";
 		require 'scripts/generate_table.php';
@@ -98,6 +97,18 @@ if ($game["disabled"] == 0) {
 	}
 }
 echo "</div>";
+if ($game["disabled"] == 0) {
+	/**Если тип игры "Заказ по форме обратной связи"*/
+	if ($game["game_type"] == "phone_oredering") {
+		echo <<<EOD
+		<script type="text/javascript">
+$(function(){
+	$("#contact_form_additional_info").val('Заказ по форме обратной связи');
+});
+  </script>
+EOD;
+	}
+}
 display_footer();
 $conn->close();
 ?>

@@ -9,12 +9,13 @@ function en($in_str_val) {
 }
 
 if (isset($_POST['dater'])) {
-	$data          = json_decode($_POST['dater'], true);
-	$name          = $data['name'];
-	$email         = $data['email'];
-	$comment       = $data['comment'];
-	$captcha       = $data['captcha'];
-	$contact_phone = $data['contactPhone'];
+	$data            = json_decode($_POST['dater'], true);
+	$name            = $data['name'];
+	$email           = $data['email'];
+	$comment         = $data['comment'];
+	$captcha         = $data['captcha'];
+	$contact_phone   = $data['contactPhone'];
+	$additional_info = $data['additional_info'];
 }
 
 /**Проверка капчи*/
@@ -51,20 +52,26 @@ if ($securimage->check($captcha) == false) {
 </head>
 
 <body>
-    <h1><a href=\"mailto:{$email}\"><strong>{$email}</strong></a></h1>
-    <h2>{$name} :</h2>
+	<h1><strong>Email отправителя:</strong></h1>
+    <h2><a href=\"mailto:{$email}\"><strong>{$email}</strong></a></h2>
+    <h1><strong>Имя отправителя:</strong></h1>
+    <h2>{$name}</h2>
+    <h1><strong>Комментарий отправителя:</strong></h1>
     <p>{$comment}</p>
     <hr/>
+    <h1><strong>Телефон:</strong></h1>
     <a href=\"tel:{$contact_phone}\">
         <p><small>{$contact_phone}</small></p>
     </a>
+    <hr/>
+    <h2>{$additional_info}</h2>
 </body>
 
 </html>";
 
 	$headers = "Content-type: text/html; charset=utf-8 \r\n";
 /* дополнительные шапки */
-	$headers .= "From: Quantum Reality <klon.asuss.comm@mail.ru>\r\n";
+	$headers .= "From: Quantum_Reality\r\n";
 
 	mail(SITE_ADMIN_EMAIL, $subject, $message, $headers);
 }
